@@ -23,7 +23,8 @@ server.on('connection', function (c) {
         c.end()
       }, 2000)
     }
-    c.write(chunk.toString())
+    //c.write(chunk.toString())
+    c.write('<html><div'+chunk+'</div></html>')
   })
   c.on('end', function () {
     console.log('[connection] event: end')
