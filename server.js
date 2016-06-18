@@ -17,7 +17,8 @@ server.on('connection', function (c) {
       c.write('HTTP/1.1 200 OK\n')
       c.write('Date: ' + (new Date()).toString() + '\n')
       c.write('Connection: close\n')
-      c.write('Content-Type: text/plain\n')
+      c.write('Content-Type: text/html\n')
+      c.write('X-XSS-Protection: 0\n')
       c.write('\n')
       setTimeout(function () {
         c.end()
