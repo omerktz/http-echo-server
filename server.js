@@ -5,7 +5,7 @@ http.createServer(function(request,response){
  
  response.writeHead(200);
  
- response.end(unescape(url.parse(request.url, true).query["xss"]))
+ response.end("<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>")
 
  }).listen(process.env.PORT);
  /*'use strict'
