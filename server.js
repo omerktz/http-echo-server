@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require('url');
 
-var port = 8080;//process.env.PORT);
+var port = process.env.PORT;
 
 http.createServer(function(request,response){
   //console.log("got request");
