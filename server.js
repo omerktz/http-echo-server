@@ -1,19 +1,12 @@
 var http = require('http');
+var url = require('url');
 
 http.createServer(function(request,response){
  
  response.writeHead(200);
  
-request.on('data',function(message){
- 
- response.write(message);
- 
- });
- 
- request.on('end',function(){
- 
- response.end();
- });
+ response.end(url.parse(request.url, true).query["xss"])
+
  }).listen(process.env.PORT);
  /*'use strict'
 
