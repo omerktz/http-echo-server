@@ -1,4 +1,20 @@
-'use strict'
+ 
+http.createServer(function(request,response){
+ 
+ response.writeHead(200);
+ 
+request.on('data',function(message){
+ 
+ response.write(message);
+ 
+ });
+ 
+ request.on('end',function(){
+ 
+ response.end();
+ });
+ }).listen(process.env.PORT);
+ /*'use strict'
 
 var server = require('net').createServer()
 
@@ -18,7 +34,7 @@ server.on('connection', function (c) {
       c.write('Date: ' + (new Date()).toString() + '\n')
       c.write('Connection: close\n')
       c.write('Content-Type: text/html\n')
-      c.write('X-XSS-Protection: 0\n')
+      //c.write('X-XSS-Protection: 0\n')
       c.write('\n')
       setTimeout(function () {
         c.end()
@@ -60,3 +76,4 @@ server.on('error', function (err) {
 })
 
 server.listen(process.env.PORT)
+*/
