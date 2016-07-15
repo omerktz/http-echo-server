@@ -1,14 +1,19 @@
 var http = require('http');
 var url = require('url');
 
-http.createServer(function(request,response){
- 
- response.writeHead(200);
- 
- response.end("<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>")
+var port = 8080;//process.env.PORT);
 
- }).listen(process.env.PORT);
- /*'use strict'
+http.createServer(function(request,response){
+  //console.log("got request");
+  //console.log("\t"+"<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>");
+  response.writeHead(200);
+  response.write("<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>");
+  response.end();
+}).listen(port);
+console.log("listening on port "+port);
+
+/*
+'use strict'
 
 var server = require('net').createServer()
 
