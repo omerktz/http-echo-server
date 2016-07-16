@@ -7,7 +7,7 @@ http.createServer(function(request,response){
   //console.log("got request");
   //console.log("\t"+"<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>");
   response.writeHead(200);
-  response.write(unescape(url.parse(request.url, true).query["xss"]));
+  response.write("<body>"+unescape(url.parse(request.url, true).query["xss"])+"</body>");
   response.end();
 }).listen(port);
 console.log("listening on port "+port);
